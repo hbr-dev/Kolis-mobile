@@ -17,8 +17,8 @@ samples, guidance on mobile development, and a full API reference.
 
 # Charts of colors:
 #   a- white: 0xffffff
-#   b- dark-blue: 0xF2F2F2
-#   c- blue-sky: 0x91C7E2
+#   b- dark-blue: 0xFF3787C1
+#   c- blue-sky: 0xFF91C7E2
 #   d- gray: 0xFFE9E9E9
 #   e- dark-gray: 0xFF8F8F8F
 #   f- black: 0x000000

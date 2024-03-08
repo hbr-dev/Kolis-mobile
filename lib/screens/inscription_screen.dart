@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:phone_form_field/phone_form_field.dart';
 import 'package:untitled/fields/phone_field.dart';
 import 'package:untitled/fields/pwd_field.dart';
 
-class InscriptionPage extends StatefulWidget {
-  const InscriptionPage({super.key});
+class InscriptionScreen extends StatefulWidget {
+  const InscriptionScreen({super.key});
 
   @override
   _InscriptionPageState createState() => _InscriptionPageState();
@@ -14,9 +13,9 @@ class InscriptionPage extends StatefulWidget {
 
 
 
-class _InscriptionPageState extends State<InscriptionPage> {
+class _InscriptionPageState extends State<InscriptionScreen> {
 
-  final String image_src = "resources/images/logo_color.png";
+  final String imageSRC = "resources/images/logo_color.png";
   final String txt = "Vous recevrez une vérification du code à 5 chiffres sur ce numéro de téléphone";
 
   @override
@@ -30,9 +29,9 @@ class _InscriptionPageState extends State<InscriptionPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              LogoSection(image: image_src),
+              LogoSection(image: imageSRC),
               TextSection(txt: txt),
-              FormSection(),
+              const FormSection(),
             ],
           ),
         ),
@@ -107,6 +106,7 @@ class TextSection extends StatelessWidget{
     );
   }
 }
+// ============= ====================== ============= //
 // ============= ==== Form Section ==== ============= //
 // ---- Form main
 class FormSection extends StatelessWidget {
@@ -175,12 +175,12 @@ class SubmitBTN extends StatelessWidget {
       decoration: BoxDecoration(
         color: const Color(0xFF3787C1),
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: Colors.blue),
+        border: Border.all(color: const Color(0xFF3787C1)),
       ),
       child: TextButton(
         onPressed: () {
           if ( PhoneFieldView.isValidPhoneNBR && PasswordFieldView.isValidPWD ) {
-            print("Form is valid!");
+            Navigator.pushNamed(context, '/phone_verification');
           } else {
             print("Form is not valid!");
           }
