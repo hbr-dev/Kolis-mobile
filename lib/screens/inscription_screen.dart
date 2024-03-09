@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/components/confirmationDialog_cmpt.dart';
 import 'package:untitled/fields/phone_field.dart';
 import 'package:untitled/fields/pwd_field.dart';
 
@@ -182,7 +183,16 @@ class SubmitBTN extends StatelessWidget {
           if ( PhoneFieldView.isValidPhoneNBR && PasswordFieldView.isValidPWD ) {
             Navigator.pushNamed(context, '/phone_verification');
           } else {
-            print("Form is not valid!");
+            showDialog(
+                context: context,
+                builder: (context) => ConfirmationDialog(
+                    title: "Vérification des Champs",
+                    content: "Veuillez vérifier vos champs avant de continuer. Certains champs semblent manquer d'informations ou être incorrects.",
+                    onConfirm: () {
+                      // Logic for confirm action here
+                    }
+                )
+            );
           }
         },
         child: const Text(

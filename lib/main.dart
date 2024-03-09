@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/screens/idVerification_screen.dart';
 import 'package:untitled/screens/inscription_screen.dart';
 import 'package:untitled/screens/verification_screen.dart';
 
 void main() => runApp(MaterialApp(
-  initialRoute: '/phone_verification',
+  initialRoute: '/id_verification',
   routes: {
+    '/inscription': (context) => const InscriptionScreen(),
     '/phone_verification': (context) => const PhoneVerificationScreen(),
-    '/signup': (context) => const InscriptionScreen(),
+    '/id_verification': (context) => const IdVerificationScreen(),
   },
 ));

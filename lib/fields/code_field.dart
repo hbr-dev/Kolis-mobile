@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_verification_code_field/flutter_verification_code_field.dart';
 
 class CodeVerificationField extends StatelessWidget {
+
+  static bool isCodeValid = false;
+
   final double left;
   final double top;
   final double right;
@@ -38,7 +41,9 @@ class _CodeInput extends StatelessWidget {
       length: 5,
       size: const Size(50, 50),
       matchingPattern: RegExp(r'^\d+$'),
-      onFilled: (value) => print(value),
+      onFilled: (value) {
+        CodeVerificationField.isCodeValid = value.isNotEmpty && int.tryParse(value) != null;
+      },
     );
   }
 }

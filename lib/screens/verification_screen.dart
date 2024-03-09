@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:untitled/components/confirmationDialog_cmpt.dart';
 import 'package:untitled/fields/code_field.dart';
 
 class PhoneVerificationScreen extends StatefulWidget {
@@ -90,7 +91,6 @@ class TextSection extends StatelessWidget {
     );
   }
 }
-
 // ========== ============================ ========== //
 // ============= ==== Form Section ==== ============= //
 // ---- Form main
@@ -215,11 +215,20 @@ class SubmitBTN extends StatelessWidget {
       ),
       child: TextButton(
         onPressed: () {
-          // if ( PhoneFieldView.isValidPhoneNBR && PasswordFieldView.isValidPWD ) {
-          //   Navigator.pushNamed(context, '/phone_verification');
-          // } else {
-          //   print("Form is not valid!");
-          // }
+          if ( CodeVerificationField.isCodeValid ) {
+            Navigator.pushNamed(context, '/id_verification');
+          } else {
+            showDialog(
+                context: context,
+                builder: (context) => ConfirmationDialog(
+                    title: "Code erroné",
+                    content: "Veuillez vérifier votre code avant de continuer.",
+                    onConfirm: () {
+                      // Logic for confirm action here
+                    }
+                )
+            );
+          }
         },
         child: const Text(
           'Vérifier',
